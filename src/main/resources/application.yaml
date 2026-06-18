@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: lazy-jdbc
+  # Run schema.sql on startup so the trivial customer table exists.
+  sql:
+    init:
+      mode: always
+  datasource:
+    # Flip this between 'eager' and 'lazy' to see the feature.
+    #   eager -> a connection is borrowed the instant a transaction opens (the default)
+    #   lazy  -> a connection is borrowed only when a statement actually runs
+    connection-fetch: eager
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: metrics
