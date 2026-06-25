@@ -6,4 +6,4 @@ services:
       POSTGRES_USER: 'demo'
       POSTGRES_PASSWORD: 'demo'
     ports:
-      - '5432:5432'
+      - '5432'

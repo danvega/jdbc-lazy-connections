@@ -9,6 +9,8 @@ spring:
     # Flip this between 'eager' and 'lazy' to see the feature.
     #   eager -> a connection is borrowed the instant a transaction opens (the default)
     #   lazy  -> a connection is borrowed only when a statement actually runs
+    # Start on 'eager' so /register pins a connection for the whole 2s remote call, then
+    # flip to 'lazy' and watch hikaricp.connections.usage drop from ~2000ms to a few ms.
     connection-fetch: eager
 
 management:
